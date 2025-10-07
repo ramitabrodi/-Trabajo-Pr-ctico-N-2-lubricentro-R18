@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Si estamos en la página de compra, cargar productos del carrito si viene desde allí
     if (document.getElementById('purchaseForm')) {
         cargarCarritoEnFormulario();
-        
+        const formCompra = document.getElementById('purchaseForm');
         const inputs = formCompra.querySelectorAll('input, select');
         
         // Configurar eventos para la barra de progreso
