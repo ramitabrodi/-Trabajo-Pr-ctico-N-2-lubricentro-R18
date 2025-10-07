@@ -1,0 +1,641 @@
+/* Reset y configuración básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #0F0F0F;
+    background-color: #FFFFFF;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+/* HEADER UNIFICADO */
+header {
+    background: #0F0F0F;
+    color: #FFFFFF;
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 5px rgba(26, 58, 95, 0.3);
+    border-bottom: 4px solid #1A3A5F;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* HERO UNIFICADO (sin zoom raro) */
+.hero {
+    background: linear-gradient(120deg, #1A3A5F 60%, #0F0F0F 100%);
+    color: #FFFFFF;
+    text-align: center;
+  padding: 3.5rem 1rem; /* igual profundidad que el resto */
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: #e7e3e3;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Ajuste general */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Botones */
+.btn, .cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    font-family: inherit;
+}
+
+.btn-primary, .cta-button {
+    background: #1A3A5F;
+    color: #FFFFFF;
+    border: 2px solid #1A3A5F;
+}
+
+.btn-primary:hover, .cta-button:hover {
+    background: #FFFFFF;
+    color: #1A3A5F;
+    border: 2px solid #1A3A5F;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(26, 58, 95, 0.3);
+}
+
+.btn-secondary {
+    background: #F7F7F7;
+    color: #0F0F0F;
+    border: 2px solid #F7F7F7;
+}
+
+.btn-secondary:hover {
+    background: #0F0F0F;
+    color: #FFFFFF;
+    border: 2px solid #0F0F0F;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #1A3A5F;
+    border: 2px solid #1A3A5F;
+}
+
+.btn-outline:hover {
+    background: #1A3A5F;
+    color: #FFFFFF;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1A3A5F 0%, #0F0F0F 100%);
+    color: #FFFFFF;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #e7e3e3;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.hero {
+    background: linear-gradient(120deg, #1A3A5F 60%, #0F0F0F 100%);
+    color: #FFFFFF;
+    text-align: center;
+  padding: 3.5rem 1rem; /* más parejo con el resto */
+}
+
+/* Secciones principales */
+.services, .featured-products {
+    padding: 4rem 0;
+    background: #F7F7F7;
+}
+
+.services h2, .featured-products h2, .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #1A3A5F;
+}
+
+/* Grid de servicios */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-item, .service-card {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: #FFFFFF;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.service-item:hover, .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(26, 58, 95, 0.2);
+    border-color: #1A3A5F;
+}
+
+.service-item h3, .service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1A3A5F;
+}
+
+.service-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Grid de productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(26, 58, 95, 0.2);
+    border-color: #1A3A5F;
+}
+
+.product-card h3, .product-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #0F0F0F;
+}
+
+.product-card p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #FFFFFF;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.price, .product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1A3A5F;
+    margin-bottom: 1rem;
+}
+
+/* Tabla de productos */
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    margin: 2rem 0;
+}
+
+.products-table th,
+.products-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.products-table th {
+    background: #1A3A5F;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.products-table tr:hover {
+    background: rgba(26, 58, 95, 0.05);
+}
+
+.products-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Detalle de producto */
+.breadcrumb {
+    margin: 2rem 0 1rem 0;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #1A3A5F;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.product-detail {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+.product-detail h2 {
+    color: #1A3A5F;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.product-detail h3 {
+    color: #1A3A5F;
+    margin: 2rem 0 1rem 0;
+    border-left: 4px solid #1A3A5F;
+    padding-left: 1rem;
+}
+
+.product-detail ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.product-detail li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Formulario de compra */
+form {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #0F0F0F;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    background-color: #FFFFFF;
+    color: #0F0F0F;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #1A3A5F;
+    outline: none;
+    box-shadow: 0 0 8px rgba(26, 58, 95, 0.2);
+}
+
+.error {
+    color: #c0392b;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Barra de progreso */
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1rem;
+    height: 10px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #1A3A5F, #2c5a8f);
+    transition: width 0.4s ease;
+}
+
+/* Notificación */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #1A3A5F;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Sección sobre nosotros */
+.about {
+    background-color: #F7F7F7;
+    padding: 4rem 0;
+}
+
+.benefits-list {
+    list-style: none;
+    padding-left: 0;
+    line-height: 1.8;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.benefits-list li {
+    margin-bottom: 0.8rem;
+    border-left: 4px solid #1A3A5F;
+    padding-left: 10px;
+}
+
+/* Carrito */
+#cart-container {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+#cart-total {
+    font-size: 1.5rem;
+    color: #1A3A5F;
+    font-weight: bold;
+    text-align: right;
+    margin: 2rem 0;
+}
+
+/* Footer */
+footer {
+    background: #0F0F0F;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 4px solid #1A3A5F;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .hero {
+        padding: 2rem 0;
+    }
+    
+    .services, .featured-products {
+        padding: 2rem 0;
+    }
+    
+    form {
+        padding: 1rem;
+    }
+    
+    .btn, .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* ==========================
+   MÉTODO DE PAGO (texto arriba, punto abajo)
+========================== */
+.metodo-pago {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.metodo-pago .opcion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.metodo-pago .opcion span {
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+
+.metodo-pago .opcion input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: #1A3A5F;
+}
+
+/* Aumentar tamaño de títulos principales */
+h2 {
+    font-size: 2.8rem !important;
+    font-weight: bold;
+}
+
+/* Aumentar tamaño de los  de "¿Por qué elegirnos?" */
+.benefits-list li,
+section ul li {
+    font-size: 1.9rem;
+    font-weight: 500;
+}
+
+/* Aumentar tamaño del texto de contacto */
+section p {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+header .container h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+
+/* Arreglar menú del header en todas las páginas */
+header .container,
+header .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Quitar bullets y forzar layout horizontal */
+header nav ul,
+header .nav-menu {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* Asegurar que los items no apilen */
+header nav ul li,
+header .nav-menu li {
+    margin: 0;
+    display: inline-block;
+}
+
+/* Estilo de links del header */
+header nav a,
+.nav-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.5rem 0.6rem;
+    display: inline-block;
+}

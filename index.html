@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lubricentro R/18 - Servicio Automotriz</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body style="font-family: 'Arial', sans-serif; color:#0F0F0F; background:#FFFFFF;">
+
+<!-- HEADER -->
+<header style="background-color:#0F0F0F; color:#FFFFFF; padding:1rem 0; border-bottom:4px solid #ecedee;">
+  <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+    <h1 style="font-size:2.6rem; font-weight:700; margin:0; color:#FFFFFF;">Lubricentro R/18</h1>
+    <nav>
+      <ul style="list-style:none; display:flex; gap:1.5rem; margin:0; padding:0;">
+        <li><a href="index.html" class="active" style="color:#FFFFFF; text-decoration:none;">Inicio</a></li>
+        <li><a href="pages/listado_tabla.html" style="color:#FFFFFF; text-decoration:none;">Productos (Tabla)</a></li>
+        <li><a href="pages/listado_box.html" style="color:#FFFFFF; text-decoration:none;">Productos (Boxes)</a></li>
+        <li><a href="pages/comprar.html" style="color:#FFFFFF; text-decoration:none;">Comprar</a></li>
+        <li><a href="pages/carrito.html" style="color:#FFFFFF; text-decoration:none;">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h2>Mantenimiento y Servicio Automotriz Profesional</h2>
+    <p>
+      En Lubricentro R/18 te brindamos un servicio completo, rápido y confiable
+      para mantener tu vehículo en perfecto estado.
+    </p>
+    <div class="hero-buttons">
+<a href="pages/listado_box.html" class="btn btn-primary" style="background:#FFFFFF; color:#1A3A5F; padding:0.8rem 1.5rem; border:none; border-radius:5px; text-decoration:none; font-weight:bold;">Ver Productos</a>
+<a href="pages/comprar.html" class="btn btn-secondary" style="background:transparent; border:2px solid #FFFFFF; color:#FFFFFF; padding:0.8rem 1.5rem; border-radius:5px; text-decoration:none; margin-left:1rem;">Comprar Productos</a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- SERVICIOS -->
+  <section style="background-color: #1A3A5F; padding:4rem 0;">
+    <div class="container">
+      <h2 style=color:#FFFFFF; text-align:center; font-size:2rem; margin-bottom:3rem;">Nuestros Servicios</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:2rem;">
+        <div style="background:#F7F7F7; border-radius:10px; padding:1.5rem; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+          <img src="img/cambio-aceite.jpg" alt="Cambio de Aceite" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+          <h3 style="color:#1A3A5F;">Cambio de Aceite</h3>
+          <p>Mantené tu motor al máximo rendimiento con lubricantes de alta calidad.</p>
+        </div>
+        <div style="background:#F7F7F7; border-radius:10px; padding:1.5rem; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+          <img src="img/filtros.jpg" alt="Cambio de Filtros" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+          <h3 style="color:#1A3A5F;">Cambio de Filtros</h3>
+          <p>Reemplazo de filtros de aire, aceite y combustible con repuestos originales.</p>
+        </div>
+        <div style="background:#F7F7F7; border-radius:10px; padding:1.5rem; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+          <img src="img/electrico.jpg" alt="Diagnóstico Electrónico" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+          <h3 style="color:#1A3A5F;">Diagnóstico Electrónico</h3>
+          <p>Chequeo completo del sistema con equipamiento de diagnóstico avanzado.</p>
+        </div>
+        <div style="background:#F7F7F7; border-radius:10px; padding:1.5rem; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+          <img src="img/balanceo.jpg" alt="Balanceo y Alineación" style="width:100%; border-radius:10px; margin-bottom:1rem;">
+          <h3 style="color:#1A3A5F;">Balanceo y Alineación</h3>
+          <p>Tu vehículo estable, seguro y alineado con precisión.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section style="background-color:#F4F6F7; padding:4rem 0;">
+    <div class="container" style="text-align:center;">
+      <h2 style="color:#1A3A5F;">¿Por qué elegirnos?</h2>
+      <ul style="list-style:none; padding:0; margin:2rem auto; max-width:600px; text-align:left; line-height:2 ;">
+        <li>✔️ Más de 15 años de experiencia.</li>
+        <li>✔️ Atención personalizada y rápida.</li>
+        <li>✔️ Productos originales de marcas líderes.</li>
+        <li>✔️ Equipamiento digital de diagnóstico.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section style="background-color:#FFFFFF; padding:4rem 0;">
+    <div class="container" style="text-align:center;">
+      <h2 style="color:#1A3A5F;">Contáctanos</h2>
+      <p style="color:#0F0F0F; margin-bottom:1.5rem;">
+        📍 Av. Posadas Misiones  1234 - Posadas Misiones <br>
+        📞 (011) 4444-5555 | ✉️ contacto@lubricentror18.com
+      </p>
+      <a href="https://wa.me/5491144445555" target="_blank" style="background-color:#1A3A5F; color:#FFFFFF; padding:0.8rem 1.5rem; border-radius:5px; text-decoration:none; font-weight:bold;">Enviar WhatsApp</a>
+      <div style="margin-top:2rem;">
+
+<section style="background-color:#FFFFFF; padding:4rem 0;">
+    <div class="container" style="text-align:center;">
+      <h2 style="color:#1A3A5F;">¿Donde Encontrarnos?</h2>
+<iframe 
+
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3543.2070732101342!2d-55.91734832531935!3d-27.3692477124321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457bf2af867ce59%3A0x65bb88b6356071c3!2sLubricentro%20R%2F18!5e0!3m2!1ses!2sar!4v1759670777194!5m2!1ses!2sar" 
+  width="100%" 
+  height="400" 
+  style="border:0;" 
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background-color:#0F0F0F; color:#FFFFFF; text-align:center; padding:2rem 0; border-top:4px solid #1A3A5F;">
+    <p>&copy; © 2025 Lubricentro R/18                                                
+
+    Dirección: Av. Principal 123, Ciudad | Tel: (011) 4567-8900 | Email: info@lubricentror18.com</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito - Lubricentro R/18</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+  body {
+    background-color: #F7F7F7;
+  }
+  
+  .cart-item {
+    background: #FFFFFF;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .cart-item-info {
+    flex: 1;
+  }
+  
+  .cart-item h4 {
+    color: #1A3A5F;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cart-item-price {
+    color: #1A3A5F;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .btn-danger {
+    background-color: #c0392b;
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background-color: #a93226;
+  }
+  
+  .empty-cart {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+  }
+
+  .cart-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+    <div class="nav-container">
+        <h1 class="logo">Lubricentro R/18</h1>
+        <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">Inicio</a></li>
+        <li><a href="listado_tabla.html" class="nav-link">Productos (Tabla)</a></li>
+        <li><a href="listado_box.html" class="nav-link">Productos (Cajas)</a></li>
+        <li><a href="comprar.html" class="nav-link">Comprar</a></li>
+        <li><a href="carrito.html" class="nav-link active">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container">
+    <h2 class="section-title" style="margin:40px 0;">🛒 Tu Carrito</h2>
+    <div id="cart-container">
+      <div class="empty-cart">
+        <p>Tu carrito está vacío</p>
+        <a href="listado_box.html" class="cta-button" style="margin-top: 1rem;">Ver Productos</a>
+      </div>
+    </div>
+
+    <div id="cart-total" style="text-align:right; margin:30px 0; font-size:1.2rem; font-weight:bold; display:none;"></div>
+
+    <div class="cart-actions" style="display:none;" id="cart-actions">
+        <a href="comprar.html" class="cta-button" id="finalizar-compra">Finalizar Compra</a>
+        <button id="clear-cart" class="btn btn-danger">Vaciar Carrito</button>
+    </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+    <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
+    <p>Dirección: Av. Principal 123, Ciudad | Tel: (011) 4567-8900 | Email: info@lubricentror18.com</p>
+    </div>
+</footer>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

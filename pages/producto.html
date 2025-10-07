@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Producto - Lubricentro R/18</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    body {
+      background-color: #F7F7F7;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">Lubricentro R/18</h1>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">Inicio</a></li>
+        <li><a href="listado_tabla.html" class="nav-link">Productos (Tabla)</a></li>
+        <li><a href="listado_box.html" class="nav-link">Productos (Cajas)</a></li>
+        <li><a href="comprar.html" class="nav-link">Comprar</a></li>
+        <li><a href="carrito.html" class="nav-link">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Inicio</a> > 
+      <a href="listado_box.html">Productos</a> > 
+      <span id="breadcrumb-nombre"></span>
+    </div>
+    
+    <div class="product-detail">
+      <img id="imagen-producto" src="" alt="Producto" class="product-image">
+      <h2 id="nombre-producto"></h2>
+      <p id="codigo-producto" style="color: #666;"></p>
+      <p class="product-price" id="precio-producto"></p>
+      <p id="descripcion-producto" style="color: #333; line-height: 1.6;"></p>
+
+      <h3>Especificaciones</h3>
+      <ul id="detalles-lista"></ul>
+
+      <div style="margin-top:30px;">
+        <button class="cta-button" id="btn-agregar">Agregar al Carrito</button>
+        <a href="listado_box.html" class="btn btn-secondary" style="margin-left:20px;">Volver</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
+    <p>Dirección: Av. Principal 123, Ciudad | Tel: (011) 4567-8900 | Email: info@lubricentror18.com</p>
+  </div>
+</footer>
+
+<script>
+const productos = [
+  { id: "MOT001", nombre: "Aceite Motor Mineral Shell 20W-50 4L", descripcion: "Aceite mineral de alta calidad para motores nafteros.", detalles: ["Viscosidad: 20W-50", "Marca: Shell", "Presentación: 4L", "Tipo: Mineral"], precio: "$8.500", imagen: "../img/aceite_mineral.jpg" },
+  { id: "MOT002", nombre: "Aceite Motor Semisintético Mobil 10W-40 4L", descripcion: "Lubricante semisintético de excelente protección y rendimiento.", detalles: ["Viscosidad: 10W-40", "Marca: Mobil", "Presentación: 4L", "Tipo: Semisintético"], precio: "$12.800", imagen: "../img/aceite_semi.jpg" },
+  { id: "MOT003", nombre: "Aceite Motor Sintético Castrol EDGE 5W-30 4L", descripcion: "Lubricante sintético premium que maximiza el rendimiento del motor.", detalles: ["Viscosidad: 5W-30", "Marca: Castrol", "Presentación: 4L", "Tipo: Sintético"], precio: "$18.900", imagen: "../img/sintetico-castrol.jpg" },
+  { id: "FIL001", nombre: "Filtro de Aceite Mann Filter", descripcion: "Filtro de alta eficiencia que garantiza la pureza del aceite.", detalles: ["Marca: Mann Filter", "Tipo: Filtro de Aceite", "Unidad: 1"], precio: "$2.300", imagen: "../img/filtro_aceite.jpg" },
+  { id: "FIL002", nombre: "Filtro de Aire Bosch", descripcion: "Filtro que mejora el rendimiento del motor y reduce el consumo.", detalles: ["Marca: Bosch", "Tipo: Filtro de Aire", "Unidad: 1"], precio: "$3.450", imagen: "../img/filtro_aire.jpg" },
+  { id: "FIL003", nombre: "Filtro de Combustible Fram", descripcion: "Filtro que evita impurezas en el sistema de combustible.", detalles: ["Marca: Fram", "Tipo: Filtro de Combustible", "Unidad: 1"], precio: "$2.800", imagen: "../img/filtro_combustible.jpg" }
+];
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+const producto = productos.find(p => p.id === id) || productos[0];
+
+document.getElementById("breadcrumb-nombre").textContent = producto.nombre;
+document.getElementById("nombre-producto").textContent = producto.nombre;
+document.getElementById("codigo-producto").textContent = `Código: ${producto.id}`;
+document.getElementById("descripcion-producto").textContent = producto.descripcion;
+document.getElementById("precio-producto").textContent = producto.precio;
+document.getElementById("imagen-producto").src = producto.imagen;
+document.getElementById("imagen-producto").alt = producto.nombre;
+
+const lista = document.getElementById("detalles-lista");
+producto.detalles.forEach(d => {
+  const li = document.createElement("li");
+  li.textContent = d;
+  lista.appendChild(li);
+});
+
+document.getElementById("btn-agregar").addEventListener("click", () => {
+  alert(`${producto.nombre} agregado al carrito ✅`);
+  // Aquí podrías actualizar el contador del carrito
+  const cartCount = document.getElementById('cart-count');
+  if (cartCount) {
+    cartCount.textContent = parseInt(cartCount.textContent) + 1;
+  }
+});
+</script>
+</body>
+</html>

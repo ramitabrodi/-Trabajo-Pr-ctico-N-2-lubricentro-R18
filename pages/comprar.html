@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprar - Lubricentro R/18</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    body { background-color: #F7F7F7; }
+    h2 { text-align: center; color: #1A3A5F; margin: 2rem 0; font-size: 2rem; }
+    
+    /* Separación entre método de pago y botón enviar */
+    .metodo-pago {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .metodo-pago label {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: block;
+      color: #1A3A5F;
+    }
+
+    .progress-bar {
+      margin: 2rem 0;
+    }
+
+    .btn-primary {
+      margin-top: 1rem;
+    }
+
+    /* Estilo para la información del carrito */
+    .info-carrito {
+      background: #e8f4fd;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      border-left: 4px solid #1A3A5F;
+      display: none;
+    }
+
+    .campo-carrito {
+      background-color: #f0f8ff;
+      border: 1px solid #cce7ff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="logo">Lubricentro R/18</h1>
+        <ul class="nav-menu">
+          <li><a href="../index.html" class="nav-link">Inicio</a></li>
+          <li><a href="listado_tabla.html" class="nav-link">Productos (Tabla)</a></li>
+          <li><a href="listado_box.html" class="nav-link">Productos (Cajas)</a></li>
+          <li><a href="comprar.html" class="nav-link active">Comprar</a></li>
+          <li><a href="carrito.html" class="nav-link">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Formulario de Compra</h2>
+    
+    <!-- Información del carrito (se muestra cuando viene desde carrito) -->
+    <div id="info-carrito" class="info-carrito">
+      <!-- Se llena automáticamente con JavaScript -->
+    </div>
+
+    <form id="purchaseForm" novalidate>
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+      <div id="error-nombre" class="error">⚠ Solo se permiten letras y espacios.</div>
+
+      <label for="direccion">Dirección</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Ej: Av. Siempre Viva 742" required>
+
+      <label for="telefono">Teléfono</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1156784321" required>
+      <div id="error-telefono" class="error">⚠ Solo se permiten números (7-15 dígitos).</div>
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="Ej: usuario@gmail.com" required>
+      <div id="error-email" class="error">⚠ Ingrese un correo válido (ej: ejemplo@dominio.com).</div>
+
+      <label for="producto">Producto a comprar</label>
+      <select id="producto" name="producto" required>
+        <option value="">Seleccione un producto...</option>
+        <option value="Aceite Motor Mineral">Aceite Motor Mineral</option>
+        <option value="Aceite Motor Sintético">Aceite Motor Sintético</option>
+        <option value="Filtro de Aceite">Filtro de Aceite</option>
+        <option value="Filtro de Aire">Filtro de Aire</option>
+        <option value="Filtro de Combustible">Filtro de Combustible</option>
+      </select>
+
+      <label for="cantidad">Cantidad</label>
+      <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
+
+      <!-- MÉTODO DE PAGO -->
+      <div class="metodo-pago">
+        <label><strong>Método de pago:</strong></label>
+
+        <div class="opcion">
+          <span>Tarjeta de crédito/débito</span>
+          <input type="radio" name="metodoPago" value="Tarjeta de crédito/débito" required>
+        </div>
+
+        <div class="opcion">
+          <span>Transferencia bancaria</span>
+          <input type="radio" name="metodoPago" value="Transferencia bancaria">
+        </div>
+
+        <div class="opcion">
+          <span>Efectivo</span>
+          <input type="radio" name="metodoPago" value="Efectivo">
+        </div>
+
+        <div id="error-metodo" class="error">⚠ Seleccione un método de pago.</div>
+      </div>
+
+      <!-- Barra de progreso -->
+      <div class="progress-bar">
+        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar Pedido</button>
+    </form>
+
+    <!-- Enlace para volver al carrito -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="carrito.html" class="btn btn-secondary">← Volver al Carrito</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Lubricentro R/18 - Todos los derechos reservados</p>
+      <p>Dirección: Av. Principal 123, Ciudad | Teléfono: (011) 4567-8900 | Email: info@lubricentror18.com</p>
+    </div>
+  </footer>
+
+  <div class="notification" id="notification">✅ Pedido enviado correctamente.</div>
+
+  <script src="../js/app.js"></script>
+  <script>
+    // Inicialización específica para esta página
+    document.addEventListener('DOMContentLoaded', function() {
+      actualizarContadorCarrito();
+      
+      // Verificar si viene desde carrito y mostrar mensaje
+      const compraDesdeCarrito = sessionStorage.getItem('compraDesdeCarrito');
+      if (compraDesdeCarrito === 'true') {
+        const carritoParaCompra = sessionStorage.getItem('carritoParaCompra');
+        if (carritoParaCompra) {
+          const carrito = JSON.parse(carritoParaCompra);
+          const infoDiv = document.getElementById('info-carrito');
+          if (infoDiv) {
+            const totalItems = carrito.reduce((acc, item) => acc + (item.cantidad || 1), 0);
+            infoDiv.innerHTML = `
+              <strong>📦 Compra desde carrito:</strong> 
+              ${carrito.length} producto(s) - ${totalItems} item(s) total
+              <br><small>Tus productos han sido cargados automáticamente. Puedes editar los datos personales.</small>
+            `;
+            infoDiv.style.display = 'block';
+          }
+        }
+      }
+
+      const form = document.getElementById('purchaseForm');
+      const progressFill = document.getElementById('progress-bar-fill');
+      
+      if (form && progressFill) {
+        const inputs = form.querySelectorAll('input, select');
+        
+        function actualizarProgreso() {
+          let completados = 0;
+          inputs.forEach(input => {
+            if (input.type === 'radio') {
+              // Para radios, verificamos si alguno del grupo está seleccionado
+              const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
+              const algunoSeleccionado = Array.from(radioGroup).some(radio => radio.checked);
+              if (algunoSeleccionado) completados++;
+            } else if (input.value.trim() !== '') {
+              completados++;
+            }
+          });
+          
+          // Ajustamos porque los radios se cuentan como un solo campo
+          const camposUnicos = new Set(Array.from(inputs).map(input => input.name));
+          const porcentaje = (completados / camposUnicos.size) * 100;
+          progressFill.style.width = porcentaje + '%';
+        }
+        
+        // Agregar eventos a todos los inputs
+        inputs.forEach(input => {
+          if (input.type === 'radio') {
+            input.addEventListener('change', actualizarProgreso);
+          } else {
+            input.addEventListener('input', actualizarProgreso);
+          }
+        });
+        
+        // Inicializar progreso
+        actualizarProgreso();
+
+        // Manejar el envío del formulario
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Validaciones básicas
+          let valido = true;
+          const nombre = document.getElementById('nombre');
+          const telefono = document.getElementById('telefono');
+          const email = document.getElementById('email');
+          const producto = document.getElementById('producto');
+          const metodoPago = document.querySelector('input[name="metodoPago"]:checked');
+
+          // Validar nombre (solo letras y espacios)
+          if (!/^[a-zA-ZÀ-ÿ\s]{2,}$/.test(nombre.value.trim())) {
+            document.getElementById('error-nombre').style.display = 'block';
+            valido = false;
+          } else {
+            document.getElementById('error-nombre').style.display = 'none';
+          }
+
+          // Validar teléfono (solo números)
+          if (!/^[0-9]{7,15}$/.test(telefono.value.trim())) {
+            document.getElementById('error-telefono').style.display = 'block';
+            valido = false;
+          } else {
+            document.getElementById('error-telefono').style.display = 'none';
+          }
+
+          // Validar email
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+            document.getElementById('error-email').style.display = 'block';
+            valido = false;
+          } else {
+            document.getElementById('error-email').style.display = 'none';
+          }
+
+          // Validar método de pago
+          if (!metodoPago) {
+            document.getElementById('error-metodo').style.display = 'block';
+            valido = false;
+          } else {
+            document.getElementById('error-metodo').style.display = 'none';
+          }
+
+          // Validar producto seleccionado
+          if (producto.value === '') {
+            producto.style.borderColor = '#c0392b';
+            valido = false;
+          } else {
+            producto.style.borderColor = '';
+          }
+
+          if (!valido) {
+            mostrarNotificacion('Por favor completa correctamente todos los campos', 'error');
+            return;
+          }
+
+          // Si todo es válido, mostrar confirmación
+          const notification = document.getElementById('notification');
+          notification.textContent = '✅ Pedido enviado correctamente';
+          notification.classList.add('show');
+          
+          setTimeout(() => {
+            notification.classList.remove('show');
+          }, 3000);
+
+          // Limpiar formulario
+          form.reset();
+          progressFill.style.width = '0%';
+
+          // Si venía desde carrito, limpiar sessionStorage
+          if (compraDesdeCarrito === 'true') {
+            sessionStorage.removeItem('compraDesdeCarrito');
+            sessionStorage.removeItem('carritoParaCompra');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
