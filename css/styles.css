@@ -1,3 +1,7 @@
+/* ============================================
+   LUBRICENTRO R/18 - ESTILOS PRINCIPALES
+   ============================================ */
+
 /* Reset y configuración básica */
 * {
     margin: 0;
@@ -18,8 +22,9 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
-/* HEADER UNIFICADO */
+/* ============================================
+   HEADER Y NAVEGACIÓN
+   ============================================ */
 header {
     background: #0F0F0F;
     color: #FFFFFF;
@@ -28,6 +33,20 @@ header {
     border-bottom: 4px solid #1A3A5F;
     position: relative;
     z-index: 10;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header .container h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
 }
 
 .nav-container {
@@ -45,12 +64,44 @@ header {
     font-weight: bold;
 }
 
-/* HERO UNIFICADO (sin zoom raro) */
+header nav ul,
+header .nav-menu {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+header nav ul li,
+header .nav-menu li {
+    margin: 0;
+    display: inline-block;
+}
+
+header nav a,
+.nav-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.5rem 0.6rem;
+    display: inline-block;
+}
+
+header nav a.active,
+.nav-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
 .hero {
     background: linear-gradient(120deg, #1A3A5F 60%, #0F0F0F 100%);
     color: #FFFFFF;
     text-align: center;
-  padding: 3.5rem 1rem; /* igual profundidad que el resto */
+    padding: 3.5rem 1rem;
 }
 
 .hero h2 {
@@ -73,14 +124,9 @@ header {
     flex-wrap: wrap;
 }
 
-/* Ajuste general */
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-/* Botones */
+/* ============================================
+   BOTONES
+   ============================================ */
 .btn, .cta-button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -141,43 +187,35 @@ body {
     font-size: 1.1rem;
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #1A3A5F 0%, #0F0F0F 100%);
-    color: #FFFFFF;
-    padding: 4rem 0;
-    text-align: center;
+.btn-danger {
+    background-color: #c0392b;
+    color: white;
 }
 
-.hero h2 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.btn-danger:hover {
+    background-color: #a93226;
+}
+
+/* Estilos específicos para botones del hero en index.html */
+.hero .btn-primary {
+    background: #FFFFFF;
+    color: #1A3A5F;
+    padding: 0.8rem 1.5rem;
+    border: none;
     font-weight: bold;
 }
 
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #e7e3e3;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.hero {
-    background: linear-gradient(120deg, #1A3A5F 60%, #0F0F0F 100%);
+.hero .btn-secondary {
+    background: transparent;
+    border: 2px solid #FFFFFF;
     color: #FFFFFF;
-    text-align: center;
-  padding: 3.5rem 1rem; /* más parejo con el resto */
+    padding: 0.8rem 1.5rem;
+    margin-left: 1rem;
 }
 
-/* Secciones principales */
+/* ============================================
+   SECCIONES PRINCIPALES
+   ============================================ */
 .services, .featured-products {
     padding: 4rem 0;
     background: #F7F7F7;
@@ -190,7 +228,22 @@ body {
     color: #1A3A5F;
 }
 
-/* Grid de servicios */
+/* Sección de servicios en index.html */
+.seccion-servicios {
+    background-color: #1A3A5F;
+    padding: 4rem 0;
+}
+
+.seccion-servicios h2 {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* ============================================
+   GRID DE SERVICIOS
+   ============================================ */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -225,7 +278,9 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Grid de productos */
+/* ============================================
+   GRID DE PRODUCTOS
+   ============================================ */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -277,7 +332,16 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Tabla de productos */
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   TABLA DE PRODUCTOS
+   ============================================ */
 .products-table {
     width: 100%;
     border-collapse: collapse;
@@ -310,7 +374,9 @@ body {
     border-bottom: none;
 }
 
-/* Detalle de producto */
+/* ============================================
+   DETALLE DE PRODUCTO
+   ============================================ */
 .breadcrumb {
     margin: 2rem 0 1rem 0;
     color: #666;
@@ -358,6 +424,17 @@ body {
     color: #333;
 }
 
+.product-detail p {
+    color: #333;
+    line-height: 1.6;
+}
+
+.product-detail .product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1A3A5F;
+}
+
 .product-image {
     width: 100%;
     max-width: 400px;
@@ -365,7 +442,71 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Formulario de compra */
+/* ============================================
+   CARRITO
+   ============================================ */
+#cart-container {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+}
+
+#cart-total {
+    font-size: 1.5rem;
+    color: #1A3A5F;
+    font-weight: bold;
+    text-align: right;
+    margin: 2rem 0;
+}
+
+.cart-item {
+    background: #FFFFFF;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item h4 {
+    color: #1A3A5F;
+    margin-bottom: 0.5rem;
+}
+
+.cart-item-price {
+    color: #1A3A5F;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+}
+
+.cart-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   FORMULARIOS
+   ============================================ */
 form {
     max-width: 800px;
     margin: 2rem auto;
@@ -407,12 +548,64 @@ input:focus, textarea:focus, select:focus {
     display: none;
 }
 
-/* Barra de progreso */
+/* Método de pago */
+.metodo-pago {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.metodo-pago label {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: #1A3A5F;
+}
+
+.metodo-pago .opcion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
+
+.metodo-pago .opcion span {
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+
+.metodo-pago .opcion input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: #1A3A5F;
+}
+
+/* Info carrito en formulario */
+.info-carrito {
+    background: #e8f4fd;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #1A3A5F;
+    display: none;
+}
+
+.campo-carrito {
+    background-color: #f0f8ff;
+    border: 1px solid #cce7ff;
+}
+
+/* ============================================
+   BARRA DE PROGRESO
+   ============================================ */
 .progress-bar {
     background-color: #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
-    margin-top: 1rem;
+    margin: 2rem 0 1rem 0;
     height: 10px;
 }
 
@@ -423,7 +616,9 @@ input:focus, textarea:focus, select:focus {
     transition: width 0.4s ease;
 }
 
-/* Notificación */
+/* ============================================
+   NOTIFICACIÓN
+   ============================================ */
 .notification {
     position: fixed;
     top: 20px;
@@ -444,46 +639,80 @@ input:focus, textarea:focus, select:focus {
     transform: translateY(0);
 }
 
-/* Sección sobre nosotros */
-.about {
-    background-color: #F7F7F7;
+/* ============================================
+   SECCIÓN SOBRE NOSOTROS
+   ============================================ */
+.about, .seccion-nosotros {
+    background-color: #F4F6F7;
     padding: 4rem 0;
+}
+
+.seccion-nosotros .container {
+    text-align: center;
+}
+
+.seccion-nosotros h2 {
+    color: #1A3A5F;
 }
 
 .benefits-list {
     list-style: none;
-    padding-left: 0;
-    line-height: 1.8;
-    color: #333;
+    padding: 0;
+    margin: 2rem auto;
     max-width: 600px;
-    margin: 0 auto;
+    text-align: left;
+    line-height: 2;
+    color: #333;
 }
 
-.benefits-list li {
+.benefits-list li,
+section ul li {
     margin-bottom: 0.8rem;
     border-left: 4px solid #1A3A5F;
     padding-left: 10px;
+    font-size: 1.9rem;
+    font-weight: 500;
 }
 
-/* Carrito */
-#cart-container {
-    background: #FFFFFF;
-    padding: 2rem;
-    border-radius: 10px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 2rem 0;
+/* ============================================
+   SECCIÓN DE CONTACTO
+   ============================================ */
+.seccion-contacto {
+    background-color: #FFFFFF;
+    padding: 4rem 0;
 }
 
-#cart-total {
-    font-size: 1.5rem;
+.seccion-contacto .container {
+    text-align: center;
+}
+
+.seccion-contacto h2 {
     color: #1A3A5F;
-    font-weight: bold;
-    text-align: right;
-    margin: 2rem 0;
 }
 
-/* Footer */
+.seccion-contacto p {
+    color: #0F0F0F;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.seccion-contacto a {
+    background-color: #1A3A5F;
+    color: #FFFFFF;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.seccion-contacto iframe {
+    border: 0;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
 footer {
     background: #0F0F0F;
     color: #FFFFFF;
@@ -497,7 +726,22 @@ footer p {
     margin-bottom: 0.5rem;
 }
 
-/* Responsive */
+/* ============================================
+   TÍTULOS GENERALES
+   ============================================ */
+h2 {
+    font-size: 2.8rem !important;
+    font-weight: bold;
+}
+
+section p {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -553,89 +797,4 @@ footer p {
         width: 100%;
         text-align: center;
     }
-}
-/* ==========================
-   MÉTODO DE PAGO (texto arriba, punto abajo)
-========================== */
-.metodo-pago {
-  margin-top: 1rem;
-  text-align: left;
-}
-
-.metodo-pago .opcion {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 0.8rem;
-}
-
-.metodo-pago .opcion span {
-    margin-bottom: 0.3rem;
-    font-weight: 500;
-}
-
-.metodo-pago .opcion input[type="radio"] {
-    transform: scale(1.2);
-    accent-color: #1A3A5F;
-}
-
-/* Aumentar tamaño de títulos principales */
-h2 {
-    font-size: 2.8rem !important;
-    font-weight: bold;
-}
-
-/* Aumentar tamaño de los  de "¿Por qué elegirnos?" */
-.benefits-list li,
-section ul li {
-    font-size: 1.9rem;
-    font-weight: 500;
-}
-
-/* Aumentar tamaño del texto de contacto */
-section p {
-    font-size: 1.3rem;
-    font-weight: 500;
-}
-header .container h1 {
-    font-size: 2.6rem;
-    font-weight: 700;
-    color: #FFFFFF;
-}
-
-
-/* Arreglar menú del header en todas las páginas */
-header .container,
-header .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-/* Quitar bullets y forzar layout horizontal */
-header nav ul,
-header .nav-menu {
-    list-style: none !important;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-/* Asegurar que los items no apilen */
-header nav ul li,
-header .nav-menu li {
-    margin: 0;
-    display: inline-block;
-}
-
-/* Estilo de links del header */
-header nav a,
-.nav-link {
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 0.5rem 0.6rem;
-    display: inline-block;
 }

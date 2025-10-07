@@ -48,9 +48,13 @@ function vaciarCarrito() {
         actualizarContadorCarrito();
         mostrarCarrito();
         mostrarNotificacion('🗑️ Carrito vaciado');
+        
+        // Forzar actualización visual
+        setTimeout(() => {
+            location.reload();
+        }, 500);
     }
 }
-
 // Mostrar notificación
 function mostrarNotificacion(mensaje, tipo = 'success') {
     let notif = document.getElementById('notification-global');
@@ -115,6 +119,9 @@ function mostrarCarrito() {
         `;
         if (totalDiv) totalDiv.style.display = 'none';
         if (actions) actions.style.display = 'none';
+        
+        // Actualizar contador a 0
+        actualizarContadorCarrito();
     } else {
         container.innerHTML = '';
         
@@ -141,7 +148,6 @@ function mostrarCarrito() {
         if (actions) actions.style.display = 'flex';
     }
 }
-
 // Función para actualizar la barra de progreso
 function actualizarBarraProgreso() {
     const form = document.getElementById('purchaseForm');
@@ -264,10 +270,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('cart-container')) {
         mostrarCarrito();
         
-        const btnVaciar = document.getElementById('clear-cart');
-        if (btnVaciar) {
-            btnVaciar.addEventListener('click', vaciarCarrito);
-        }
+            const btnVaciar = document.getElementById('clear-cart');
+                if (btnVaciar) {
+                        btnVaciar.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            vaciarCarrito();
+    });
+}
         
         // Configurar el botón de finalizar compra
         const btnFinalizar = document.getElementById('finalizar-compra');
