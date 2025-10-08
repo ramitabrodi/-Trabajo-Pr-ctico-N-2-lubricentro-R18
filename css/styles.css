@@ -799,32 +799,37 @@ section p {
     }
 }
 
-/* ============================================
-   CORRECCIONES PARA PÁGINA COMPRAR.HTML
-   ============================================ */
-
-/* Centrar el contenido principal de comprar.html */
-body.page-comprar main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 20px;
-    text-align: center;
+/* === FORMULARIO DE COMPRA === */
+.page-comprar h2 {
+    text-align: center; /* centra el título */
+    margin-bottom: 1.5rem;
 }
 
-/* Asegurar que el formulario esté centrado */
-body.page-comprar #purchaseForm {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+form#purchaseForm {
+    display: flex;
+    flex-direction: column;
+  align-items: flex-start; /* alinea todo a la izquierda */
+    max-width: 500px;
+    margin: 0 auto; /* mantiene el formulario centrado visualmente */
+    text-align: left;
 }
 
-/* Centrar el título en comprar.html */
-body.page-comprar h2 {
-    text-align: center;
+form#purchaseForm label {
+    font-weight: bold;
+    margin-top: 15px;
 }
 
-/* Centrar botón volver al carrito */
-body.page-comprar .btn-volver-carrito {
-    text-align: center;
-    margin-top: 2rem;
+form#purchaseForm input,
+form#purchaseForm select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+form#purchaseForm .error {
+    color: #c0392b;
+    font-size: 0.9rem;
+    display: none;
 }
