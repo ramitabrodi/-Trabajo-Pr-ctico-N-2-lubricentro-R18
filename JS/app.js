@@ -39,7 +39,6 @@ function eliminarDelCarrito(index) {
     actualizarContadorCarrito();
     mostrarCarrito();
 }
-
 // Vaciar carrito completo
 function vaciarCarrito() {
     if (confirm('¿Estás seguro de vaciar el carrito?')) {
@@ -48,11 +47,6 @@ function vaciarCarrito() {
         actualizarContadorCarrito();
         mostrarCarrito();
         mostrarNotificacion('🗑️ Carrito vaciado');
-        
-        // Forzar actualización visual
-        setTimeout(() => {
-            location.reload();
-        }, 500);
     }
 }
 // Mostrar notificación
