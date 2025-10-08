@@ -833,3 +833,7 @@ form#purchaseForm .error {
     font-size: 0.9rem;
     display: none;
 }
+/* Alinear texto a la izquierda en el formulario */
+form#purchaseForm {
+    text-align: left;
+}
