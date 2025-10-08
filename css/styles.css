@@ -798,3 +798,33 @@ section p {
         text-align: center;
     }
 }
+
+/* ============================================
+   CORRECCIONES PARA PÁGINA COMPRAR.HTML
+   ============================================ */
+
+/* Centrar el contenido principal de comprar.html */
+body.page-comprar main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+    text-align: center;
+}
+
+/* Asegurar que el formulario esté centrado */
+body.page-comprar #purchaseForm {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Centrar el título en comprar.html */
+body.page-comprar h2 {
+    text-align: center;
+}
+
+/* Centrar botón volver al carrito */
+body.page-comprar .btn-volver-carrito {
+    text-align: center;
+    margin-top: 2rem;
+}

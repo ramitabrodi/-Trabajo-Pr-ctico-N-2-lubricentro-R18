@@ -23,7 +23,8 @@
     </nav>
   </header>
 
-  <main>
+<main>
+  <div class="container">
     <h2>Formulario de Compra</h2>
     
     <!-- Información del carrito (se muestra cuando viene desde carrito) -->
@@ -94,7 +95,8 @@
     <div class="btn-volver-carrito">
       <a href="carrito.html" class="btn btn-secondary">← Volver al Carrito</a>
     </div>
-  </main>
+  </div>
+</main>
 
   <footer>
     <div class="container">
@@ -106,150 +108,5 @@
   <div class="notification" id="notification">✅ Pedido enviado correctamente.</div>
 
   <script src="../js/app.js"></script>
-  <script>
-    // Inicialización específica para esta página
-    document.addEventListener('DOMContentLoaded', function() {
-      actualizarContadorCarrito();
-      
-      // Verificar si viene desde carrito y mostrar mensaje
-      const compraDesdeCarrito = sessionStorage.getItem('compraDesdeCarrito');
-      if (compraDesdeCarrito === 'true') {
-        const carritoParaCompra = sessionStorage.getItem('carritoParaCompra');
-        if (carritoParaCompra) {
-          const carrito = JSON.parse(carritoParaCompra);
-          const infoDiv = document.getElementById('info-carrito');
-          if (infoDiv) {
-            const totalItems = carrito.reduce((acc, item) => acc + (item.cantidad || 1), 0);
-            infoDiv.innerHTML = `
-              <strong>📦 Compra desde carrito:</strong> 
-              ${carrito.length} producto(s) - ${totalItems} item(s) total
-              <br><small>Tus productos han sido cargados automáticamente. Puedes editar los datos personales.</small>
-            `;
-            infoDiv.style.display = 'block';
-          }
-        }
-      }
-
-      const form = document.getElementById('purchaseForm');
-      const progressFill = document.getElementById('progress-bar-fill');
-      
-      if (form && progressFill) {
-        const inputs = form.querySelectorAll('input, select');
-        
-        function actualizarProgreso() {
-          let completados = 0;
-          const camposUnicos = new Set();
-          
-          inputs.forEach(input => {
-            if (input.type === 'radio') {
-              if (!camposUnicos.has(input.name)) {
-                camposUnicos.add(input.name);
-                const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
-                const algunoSeleccionado = Array.from(radioGroup).some(radio => radio.checked);
-                if (algunoSeleccionado) completados++;
-              }
-            } else {
-              camposUnicos.add(input.name);
-              if (input.value.trim() !== '') {
-                completados++;
-              }
-            }
-          });
-          
-          const porcentaje = camposUnicos.size > 0 ? (completados / camposUnicos.size) * 100 : 0;
-          progressFill.style.width = porcentaje + '%';
-        }
-        
-        // Agregar eventos a todos los inputs
-        inputs.forEach(input => {
-          if (input.type === 'radio') {
-            input.addEventListener('change', actualizarProgreso);
-          } else {
-            input.addEventListener('input', actualizarProgreso);
-          }
-        });
-        
-        // Inicializar progreso
-        actualizarProgreso();
-
-        // Manejar el envío del formulario
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          // Validaciones básicas
-          let valido = true;
-          const nombre = document.getElementById('nombre');
-          const telefono = document.getElementById('telefono');
-          const email = document.getElementById('email');
-          const producto = document.getElementById('producto');
-          const metodoPago = document.querySelector('input[name="metodoPago"]:checked');
-
-          // Validar nombre (solo letras y espacios)
-          if (!/^[a-zA-ZÀ-ÿ\s]{2,}$/.test(nombre.value.trim())) {
-            document.getElementById('error-nombre').style.display = 'block';
-            valido = false;
-          } else {
-            document.getElementById('error-nombre').style.display = 'none';
-          }
-
-          // Validar teléfono (solo números)
-          if (!/^[0-9]{7,15}$/.test(telefono.value.trim())) {
-            document.getElementById('error-telefono').style.display = 'block';
-            valido = false;
-          } else {
-            document.getElementById('error-telefono').style.display = 'none';
-          }
-
-          // Validar email
-          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-            document.getElementById('error-email').style.display = 'block';
-            valido = false;
-          } else {
-            document.getElementById('error-email').style.display = 'none';
-          }
-
-          // Validar método de pago
-          if (!metodoPago) {
-            document.getElementById('error-metodo').style.display = 'block';
-            valido = false;
-          } else {
-            document.getElementById('error-metodo').style.display = 'none';
-          }
-
-          // Validar producto seleccionado
-          if (producto.value === '') {
-            producto.style.borderColor = '#c0392b';
-            valido = false;
-          } else {
-            producto.style.borderColor = '';
-          }
-
-          if (!valido) {
-            mostrarNotificacion('Por favor completa correctamente todos los campos', 'error');
-            return;
-          }
-
-          // Si todo es válido, mostrar confirmación
-          const notification = document.getElementById('notification');
-          notification.textContent = '✅ Pedido enviado correctamente';
-          notification.classList.add('show');
-          
-          setTimeout(() => {
-            notification.classList.remove('show');
-          }, 3000);
-
-          // Limpiar formulario
-          form.reset();
-          progressFill.style.width = '0%';
-
-          // Si venía desde carrito, limpiar sessionStorage
-          if (compraDesdeCarrito === 'true') {
-            sessionStorage.removeItem('compraDesdeCarrito');
-            sessionStorage.removeItem('carritoParaCompra');
-          }
-        });
-      }
-    });
-  </script>
 </body>
 </html>
