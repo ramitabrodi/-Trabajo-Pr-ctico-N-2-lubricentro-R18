@@ -6,9 +6,8 @@
   <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
   <title>Comprar - Lubricentro R/18</title>
   <link rel="stylesheet" href="../css/styles.css">
-
 </head>
-<body>
+<body class="page-comprar">
   <header>
     <nav class="navbar">
       <div class="nav-container">
@@ -92,7 +91,7 @@
     </form>
 
     <!-- Enlace para volver al carrito -->
-    <div style="text-align: center; margin-top: 2rem;">
+    <div class="btn-volver-carrito">
       <a href="carrito.html" class="btn btn-secondary">← Volver al Carrito</a>
     </div>
   </main>
@@ -139,20 +138,25 @@
         
         function actualizarProgreso() {
           let completados = 0;
+          const camposUnicos = new Set();
+          
           inputs.forEach(input => {
             if (input.type === 'radio') {
-              // Para radios, verificamos si alguno del grupo está seleccionado
-              const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
-              const algunoSeleccionado = Array.from(radioGroup).some(radio => radio.checked);
-              if (algunoSeleccionado) completados++;
-            } else if (input.value.trim() !== '') {
-              completados++;
+              if (!camposUnicos.has(input.name)) {
+                camposUnicos.add(input.name);
+                const radioGroup = document.querySelectorAll(`input[name="${input.name}"]`);
+                const algunoSeleccionado = Array.from(radioGroup).some(radio => radio.checked);
+                if (algunoSeleccionado) completados++;
+              }
+            } else {
+              camposUnicos.add(input.name);
+              if (input.value.trim() !== '') {
+                completados++;
+              }
             }
           });
           
-          // Ajustamos porque los radios se cuentan como un solo campo
-          const camposUnicos = new Set(Array.from(inputs).map(input => input.name));
-          const porcentaje = (completados / camposUnicos.size) * 100;
+          const porcentaje = camposUnicos.size > 0 ? (completados / camposUnicos.size) * 100 : 0;
           progressFill.style.width = porcentaje + '%';
         }
         
