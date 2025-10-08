@@ -39,6 +39,7 @@ function eliminarDelCarrito(index) {
     actualizarContadorCarrito();
     mostrarCarrito();
 }
+
 // Vaciar carrito completo
 function vaciarCarrito() {
     if (confirm('¿Estás seguro de vaciar el carrito?')) {
@@ -49,6 +50,7 @@ function vaciarCarrito() {
         mostrarNotificacion('🗑️ Carrito vaciado');
     }
 }
+
 // Mostrar notificación
 function mostrarNotificacion(mensaje, tipo = 'success') {
     let notif = document.getElementById('notification-global');
@@ -113,8 +115,6 @@ function mostrarCarrito() {
         `;
         if (totalDiv) totalDiv.style.display = 'none';
         if (actions) actions.style.display = 'none';
-        
-        // Actualizar contador a 0
         actualizarContadorCarrito();
     } else {
         container.innerHTML = '';
@@ -142,6 +142,7 @@ function mostrarCarrito() {
         if (actions) actions.style.display = 'flex';
     }
 }
+
 // Función para actualizar la barra de progreso
 function actualizarBarraProgreso() {
     const form = document.getElementById('purchaseForm');
@@ -155,7 +156,6 @@ function actualizarBarraProgreso() {
     
     inputs.forEach(input => {
         if (input.type === 'radio') {
-            // Para radios, contamos el grupo una sola vez
             const name = input.name;
             if (!document.querySelector(`input[name="${name}"]:checked`)) {
                 camposTotales++;
@@ -163,7 +163,6 @@ function actualizarBarraProgreso() {
                 camposTotales++;
                 camposCompletados++;
             }
-            // Evitamos contar múltiples veces el mismo grupo
             return;
         } else if (input.type !== 'radio') {
             camposTotales++;
@@ -179,7 +178,6 @@ function actualizarBarraProgreso() {
 
 // Función para preparar la compra desde el carrito
 function prepararCompraDesdeCarrito() {
-    // Guardar información del carrito para usar en la página de compra
     const carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
     
     if (carritoActual.length === 0) {
@@ -187,7 +185,6 @@ function prepararCompraDesdeCarrito() {
         return false;
     }
     
-    // Guardar en sessionStorage para usar en la página de compra
     sessionStorage.setItem('compraDesdeCarrito', 'true');
     sessionStorage.setItem('carritoParaCompra', JSON.stringify(carritoActual));
     
@@ -202,7 +199,6 @@ function cargarCarritoEnFormulario() {
     if (compraDesdeCarrito === 'true' && carritoParaCompra) {
         const carrito = JSON.parse(carritoParaCompra);
         
-        // Mostrar información del carrito
         const infoCarrito = document.getElementById('info-carrito');
         if (infoCarrito) {
             infoCarrito.style.display = 'block';
@@ -214,12 +210,10 @@ function cargarCarritoEnFormulario() {
             `;
         }
         
-        // Limpiar el select de productos
         const selectProducto = document.getElementById('producto');
         if (selectProducto) {
             selectProducto.innerHTML = '<option value="">Seleccione un producto...</option>';
             
-            // Agregar productos del carrito al select
             carrito.forEach(item => {
                 const option = document.createElement('option');
                 option.value = item.nombre;
@@ -228,7 +222,6 @@ function cargarCarritoEnFormulario() {
                 selectProducto.appendChild(option);
             });
             
-            // Si hay múltiples productos, mostrar un resumen como opción seleccionada
             if (carrito.length > 1) {
                 const optionResumen = document.createElement('option');
                 optionResumen.value = 'multiple';
@@ -238,7 +231,6 @@ function cargarCarritoEnFormulario() {
             }
         }
         
-        // Establecer la cantidad total
         const inputCantidad = document.getElementById('cantidad');
         if (inputCantidad) {
             const cantidadTotal = carrito.reduce((total, item) => total + (item.cantidad || 1), 0);
@@ -247,11 +239,9 @@ function cargarCarritoEnFormulario() {
             inputCantidad.title = 'Cantidad automática desde el carrito';
         }
         
-        // Limpiar sessionStorage después de usar
         sessionStorage.removeItem('compraDesdeCarrito');
         sessionStorage.removeItem('carritoParaCompra');
         
-        // Actualizar barra de progreso
         setTimeout(actualizarBarraProgreso, 100);
     }
 }
@@ -264,20 +254,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('cart-container')) {
         mostrarCarrito();
         
-            const btnVaciar = document.getElementById('clear-cart');
-                if (btnVaciar) {
-                        btnVaciar.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            vaciarCarrito();
-    });
-}
+        const btnVaciar = document.getElementById('clear-cart');
+        if (btnVaciar) {
+            btnVaciar.addEventListener('click', function(e) {
+                e.preventDefault();
+                vaciarCarrito();
+            });
+        }
         
-        // Configurar el botón de finalizar compra
         const btnFinalizar = document.getElementById('finalizar-compra');
         if (btnFinalizar) {
             btnFinalizar.addEventListener('click', function(e) {
                 if (!prepararCompraDesdeCarrito()) {
-                    e.preventDefault(); // Prevenir navegación si el carrito está vacío
+                    e.preventDefault();
                 }
             });
         }
@@ -296,13 +285,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Si estamos en la página de compra, cargar productos del carrito si viene desde allí
-    if (document.getElementById('purchaseForm')) {
+    // Si estamos en la página de compra
+    const formCompra = document.getElementById('purchaseForm');
+    if (formCompra) {
         cargarCarritoEnFormulario();
-        const formCompra = document.getElementById('purchaseForm');
+        
         const inputs = formCompra.querySelectorAll('input, select');
         
-        // Configurar eventos para la barra de progreso
         inputs.forEach(input => {
             if (input.type === 'radio') {
                 input.addEventListener('change', actualizarBarraProgreso);
@@ -311,7 +300,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Inicializar barra de progreso
         actualizarBarraProgreso();
         
         const validarNombre = nombre => /^[a-zA-ZÀ-ÿ\s]{2,}$/.test(nombre);
@@ -328,7 +316,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const metodoPago = document.querySelector('input[name="metodoPago"]:checked');
             const producto = document.getElementById('producto');
             
-            // Validar nombre
             const errorNombre = document.getElementById('error-nombre');
             if (nombre && !validarNombre(nombre.value.trim())) {
                 if (errorNombre) errorNombre.style.display = 'block';
@@ -337,7 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorNombre.style.display = 'none';
             }
             
-            // Validar teléfono
             const errorTel = document.getElementById('error-telefono');
             if (tel && !validarTelefono(tel.value.trim())) {
                 if (errorTel) errorTel.style.display = 'block';
@@ -346,7 +332,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorTel.style.display = 'none';
             }
             
-            // Validar email
             const errorEmail = document.getElementById('error-email');
             if (email && !validarEmail(email.value.trim())) {
                 if (errorEmail) errorEmail.style.display = 'block';
@@ -355,7 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorEmail.style.display = 'none';
             }
             
-            // Validar método de pago
             const errorMetodo = document.getElementById('error-metodo');
             if (!metodoPago) {
                 if (errorMetodo) errorMetodo.style.display = 'block';
@@ -364,7 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorMetodo.style.display = 'none';
             }
             
-            // Validar producto seleccionado
             if (producto && producto.value === '') {
                 valido = false;
                 producto.style.borderColor = '#c0392b';
@@ -377,26 +360,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            // Si todo es válido, procesar el pedido
             const productoSeleccionado = producto.value;
             const cantidad = document.getElementById('cantidad').value;
             
-            // Determinar si es una compra desde carrito
             const esCompraDesdeCarrito = sessionStorage.getItem('compraDesdeCarrito') === 'true';
             
             if (esCompraDesdeCarrito) {
-                // Para compras desde carrito, vaciar el carrito después de la compra
                 carrito = [];
                 localStorage.removeItem("carrito");
                 actualizarContadorCarrito();
                 
                 mostrarNotificacion('✅ Compra finalizada correctamente. ¡Gracias por tu pedido!');
             } else {
-                // Para compras individuales, agregar al carrito
                 const productoCarrito = {
-                    id: 'PED' + Date.now(), // ID único para el pedido
+                    id: 'PED' + Date.now(),
                     nombre: `${productoSeleccionado} (x${cantidad}) - Pedido personalizado`,
-                    precio: '0', // No tenemos precio específico en el formulario
+                    precio: '0',
                     cantidad: parseInt(cantidad)
                 };
                 
@@ -405,18 +384,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             formCompra.reset();
-            
-            // Reiniciar barra de progreso
             actualizarBarraProgreso();
             
-            // Restablecer cantidad editable si estaba en modo carrito
             const inputCantidad = document.getElementById('cantidad');
             if (inputCantidad) {
                 inputCantidad.removeAttribute('readonly');
                 inputCantidad.removeAttribute('title');
             }
             
-            // Ocultar info carrito si existe
             const infoCarrito = document.getElementById('info-carrito');
             if (infoCarrito) {
                 infoCarrito.style.display = 'none';
