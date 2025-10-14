@@ -406,3 +406,14 @@ window.eliminarDelCarrito = eliminarDelCarrito;
 window.vaciarCarrito = vaciarCarrito;
 window.mostrarCarrito = mostrarCarrito;
 window.prepararCompraDesdeCarrito = prepararCompraDesdeCarrito;
+
+// --- Menú hamburguesa ---
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show-menu");
+    });
+}
+

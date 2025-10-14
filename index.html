@@ -8,22 +8,29 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+<button class="menu-toggle" id="menu-toggle">☰</button>
 
 <!-- HEADER -->
 <header>
-  <div class="container">
-    <h1>Lubricentro R/18</h1>
+  <div class="nav-container">
+    <h1 class="logo">Lubricentro R/18</h1>
+
+    <!-- Botón hamburguesa -->
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <!-- Menú principal -->
     <nav>
-      <ul>
-        <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="pages/listado_tabla.html">Productos (Tabla)</a></li>
-        <li><a href="pages/listado_box.html">Productos (Boxes)</a></li>
-        <li><a href="pages/comprar.html">Comprar</a></li>
-        <li><a href="pages/carrito.html">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="pages/listado_tabla.html" class="nav-link">Productos (Tabla)</a></li>
+        <li><a href="pages/listado_box.html" class="nav-link">Productos (Cajas)</a></li>
+        <li><a href="pages/comprar.html" class="nav-link">Comprar</a></li>
+        <li><a href="pages/carrito.html" class="nav-link">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
       </ul>
     </nav>
   </div>
 </header>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -92,7 +99,8 @@
     </p>
     <a href="https://wa.me/5491144445555" target="_blank">Enviar WhatsApp</a>
     
-    <h2 style="margin-top: 3rem;">¿Dónde Encontrarnos?</h2>
+    <h2 class="titulo-ubicacion">¿Dónde Encontrarnos?</h2>
+
     <iframe 
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3543.2070732101342!2d-55.91734832531935!3d-27.3692477124321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457bf2af867ce59%3A0x65bb88b6356071c3!2sLubricentro%20R%2F18!5e0!3m2!1ses!2sar!4v1759670777194!5m2!1ses!2sar" 
       width="100%" 

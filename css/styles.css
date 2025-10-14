@@ -837,3 +837,77 @@ form#purchaseForm .error {
 form#purchaseForm {
     text-align: left;
 }
+
+
+/* === RESPONSIVE (MÓVIL) === */
+@media (max-width: 768px) {
+    header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    }
+
+    nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    }
+
+    .hero h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    }
+
+    .hero p {
+    font-size: 1rem;
+    text-align: center;
+    }
+
+    .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .services-grid {
+    grid-template-columns: 1fr;}
+}
+
+
+/* === MENÚ HAMBURGUESA === */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Para pantallas chicas */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #1a3a5f;
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  nav ul.show-menu {
+    display: flex;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.titulo-ubicacion {
+    margin-top: 3rem;
+}
