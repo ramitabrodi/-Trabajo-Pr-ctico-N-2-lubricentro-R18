@@ -8,41 +8,45 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-<button class="menu-toggle" id="menu-toggle">☰</button>
 
 <!-- HEADER -->
 <header>
   <div class="nav-container">
-    <h1 class="logo">Lubricentro R/18</h1>
-
-    <!-- Botón hamburguesa -->
-    <button class="menu-toggle" id="menu-toggle">☰</button>
-
-    <!-- Menú principal -->
+    <h1 class="logo">🔧 Lubricentro R/18</h1>
+    <button class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav>
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="index.html" class="nav-link">Inicio</a></li>
-        <li><a href="pages/listado_tabla.html" class="nav-link">Productos (Tabla)</a></li>
-        <li><a href="pages/listado_box.html" class="nav-link">Productos (Cajas)</a></li>
+        <li><a href="index.html" class="nav-link active">Inicio</a></li>
+        <li><a href="pages/listado_tabla.html" class="nav-link">Productos</a></li>
+        <li><a href="pages/listado_box.html" class="nav-link">Catálogo</a></li>
         <li><a href="pages/comprar.html" class="nav-link">Comprar</a></li>
-        <li><a href="pages/carrito.html" class="nav-link">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
+        <li><a href="pages/carrito.html" class="nav-link cart-link">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cart-count">0</span>
+        </a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-
 <!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <h2>Mantenimiento y Servicio Automotriz Profesional</h2>
-    <p>
-      En Lubricentro R/18 te brindamos un servicio completo, rápido y confiable
-      para mantener tu vehículo en perfecto estado.
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h2 class="hero-title">Mantenimiento Automotriz Profesional</h2>
+    <p class="hero-subtitle">
+      Servicio completo, rápido y confiable para mantener tu vehículo en perfecto estado
     </p>
     <div class="hero-buttons">
-      <a href="pages/listado_box.html" class="btn btn-primary">Ver Productos</a>
-      <a href="pages/comprar.html" class="btn btn-secondary">Comprar Productos</a>
+      <a href="pages/listado_box.html" class="btn btn-primary">
+        <span>Ver Productos</span>
+        <span class="btn-arrow">→</span>
+      </a>
+      <a href="pages/comprar.html" class="btn btn-secondary">Comprar Ahora</a>
     </div>
   </div>
 </section>
@@ -50,28 +54,95 @@
 <!-- SERVICIOS -->
 <section class="seccion-servicios">
   <div class="container">
-    <h2>Nuestros Servicios</h2>
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p class="section-subtitle">Todo lo que tu vehículo necesita en un solo lugar</p>
+    
     <div class="services-grid">
-      <div class="service-item">
-        <img src="img/cambio-aceite.jpg" alt="Cambio de Aceite">
+      <div class="service-card">
+        <div class="service-icon">🛢️</div>
         <h3>Cambio de Aceite</h3>
         <p>Mantené tu motor al máximo rendimiento con lubricantes de alta calidad.</p>
+        <a href="#" class="service-link">Saber más →</a>
       </div>
-      <div class="service-item">
-        <img src="img/filtros.jpg" alt="Cambio de Filtros">
+      
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
         <h3>Cambio de Filtros</h3>
         <p>Reemplazo de filtros de aire, aceite y combustible con repuestos originales.</p>
+        <a href="#" class="service-link">Saber más →</a>
       </div>
-      <div class="service-item">
-        <img src="img/electrico.jpg" alt="Diagnóstico Electrónico">
+      
+      <div class="service-card">
+        <div class="service-icon">💻</div>
         <h3>Diagnóstico Electrónico</h3>
         <p>Chequeo completo del sistema con equipamiento de diagnóstico avanzado.</p>
+        <a href="#" class="service-link">Saber más →</a>
       </div>
-      <div class="service-item">
-        <img src="img/balanceo.jpg" alt="Balanceo y Alineación">
+      
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
         <h3>Balanceo y Alineación</h3>
         <p>Tu vehículo estable, seguro y alineado con precisión.</p>
+        <a href="#" class="service-link">Saber más →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS DESTACADOS -->
+<section class="featured-section">
+  <div class="container">
+    <h2 class="section-title">Productos Destacados</h2>
+    <p class="section-subtitle">Los más vendidos de nuestra tienda</p>
+    
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-badge">Más Vendido</div>
+        <img src="img/aceite_mineral.jpg" alt="Aceite Motor Mineral">
+        <div class="product-info">
+          <h4>Aceite Motor Mineral</h4>
+          <p class="product-brand">Shell - 20W-50</p>
+          <div class="product-footer">
+            <span class="product-price">$8.500</span>
+            <button onclick="agregarAlCarrito({id:'MOT001', nombre:'Aceite Motor Mineral Shell 20W-50', precio:'$8.500'})" class="btn-add-cart">
+              <span>+</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="img/aceite_semi.jpg" alt="Aceite Motor Semisintético">
+        <div class="product-info">
+          <h4>Aceite Motor Semisintético</h4>
+          <p class="product-brand">Mobil - 10W-40</p>
+          <div class="product-footer">
+            <span class="product-price">$12.800</span>
+            <button onclick="agregarAlCarrito({id:'MOT002', nombre:'Aceite Motor Semisintético Mobil 10W-40', precio:'$12.800'})" class="btn-add-cart">
+              <span>+</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-badge premium">Premium</div>
+        <img src="img/castrol.jpg" alt="Aceite Motor Sintético">
+        <div class="product-info">
+          <h4>Aceite Motor Sintético</h4>
+          <p class="product-brand">Castrol - 5W-30</p>
+          <div class="product-footer">
+            <span class="product-price">$18.900</span>
+            <button onclick="agregarAlCarrito({id:'MOT003', nombre:'Aceite Motor Sintético Castrol 5W-30', precio:'$18.900'})" class="btn-add-cart">
+              <span>+</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center" style="margin-top: 3rem;">
+      <a href="pages/listado_box.html" class="btn btn-outline-dark">Ver Todos los Productos</a>
     </div>
   </div>
 </section>
@@ -79,42 +150,119 @@
 <!-- NOSOTROS -->
 <section class="seccion-nosotros">
   <div class="container">
-    <h2>¿Por qué elegirnos?</h2>
-    <ul class="benefits-list">
-      <li>✔️ Más de 15 años de experiencia.</li>
-      <li>✔️ Atención personalizada y rápida.</li>
-      <li>✔️ Productos originales de marcas líderes.</li>
-      <li>✔️ Equipamiento digital de diagnóstico.</li>
-    </ul>
+    <h2 class="section-title">¿Por qué elegirnos?</h2>
+    <p class="section-subtitle">Experiencia y calidad en cada servicio</p>
+    
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-icon">🏆</div>
+        <h3>15+ Años</h3>
+        <p>De experiencia en el mercado</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">⚡</div>
+        <h3>Atención Rápida</h3>
+        <p>Servicio personalizado y eficiente</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">✓</div>
+        <h3>Productos Originales</h3>
+        <p>Marcas líderes del mercado</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">💻</div>
+        <h3>Tecnología Avanzada</h3>
+        <p>Equipamiento de diagnóstico digital</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACTO -->
 <section class="seccion-contacto">
   <div class="container">
-    <h2>Contáctanos</h2>
-    <p>
-      📍 Av. Posadas Misiones 1234 - Posadas Misiones <br>
-      📞 (011) 4444-5555 | ✉️ contacto@lubricentror18.com
-    </p>
-    <a href="https://wa.me/5491144445555" target="_blank">Enviar WhatsApp</a>
-    
-    <h2 class="titulo-ubicacion">¿Dónde Encontrarnos?</h2>
-
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3543.2070732101342!2d-55.91734832531935!3d-27.3692477124321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457bf2af867ce59%3A0x65bb88b6356071c3!2sLubricentro%20R%2F18!5e0!3m2!1ses!2sar!4v1759670777194!5m2!1ses!2sar" 
-      width="100%" 
-      height="400" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Contáctanos</h2>
+        <p class="contact-text">Estamos para ayudarte con el mantenimiento de tu vehículo</p>
+        
+        <div class="contact-items">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <h4>Dirección</h4>
+              <p>Av. Posadas Misiones 1234 - Posadas Misiones</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <h4>Teléfono</h4>
+              <p>(011) 4444-5555</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <h4>Email</h4>
+              <p>contacto@lubricentror18.com</p>
+            </div>
+          </div>
+        </div>
+        
+        <a href="https://wa.me/5491144445555" target="_blank" class="btn btn-whatsapp">
+          <span>💬</span> Enviar WhatsApp
+        </a>
+      </div>
+      
+      <div class="contact-map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3543.2070732101342!2d-55.91734832531935!3d-27.3692477124321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9457bf2af867ce59%3A0x65bb88b6356071c3!2sLubricentro%20R%2F18!5e0!3m2!1ses!2sar!4v1759670777194!5m2!1ses!2sar" 
+          width="100%" 
+          height="100%" 
+          style="border:0; border-radius: 10px;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2025 Lubricentro R/18 - Dirección: Av. Principal 123, Ciudad | Tel: (011) 4567-8900 | Email: info@lubricentror18.com</p>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🔧 Lubricentro R/18</h3>
+        <p>Tu aliado en el mantenimiento automotriz desde 2010</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="pages/listado_box.html">Productos</a></li>
+          <li><a href="pages/comprar.html">Comprar</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <ul class="footer-links">
+          <li>Tel: (011) 4567-8900</li>
+          <li>info@lubricentror18.com</li>
+          <li>Av. Principal 123, Ciudad</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
+    </div>
+  </div>
 </footer>
 
 <script src="js/app.js"></script>

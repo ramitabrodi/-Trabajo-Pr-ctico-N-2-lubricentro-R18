@@ -4,29 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
-  <title>Productos en Tabla - Lubricentro R/18</title>
+  <title>Listado de Productos - Lubricentro R/18</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <h1 class="logo">Lubricentro R/18</h1>
-        <ul class="nav-menu">
-          <li><a href="../index.html" class="nav-link">Inicio</a></li>
-          <li><a href="listado_tabla.html" class="nav-link active">Productos (Tabla)</a></li>
-          <li><a href="listado_box.html" class="nav-link">Productos (Cajas)</a></li>
-          <li><a href="comprar.html" class="nav-link">Comprar</a></li>
-          <li><a href="carrito.html" class="nav-link">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
-        </ul>
-      </div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-container">
+    <h1 class="logo">🔧 Lubricentro R/18</h1>
+    <button class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="../index.html" class="nav-link">Inicio</a></li>
+        <li><a href="listado_tabla.html" class="nav-link active">Productos</a></li>
+        <li><a href="listado_box.html" class="nav-link">Catálogo</a></li>
+        <li><a href="comprar.html" class="nav-link">Comprar</a></li>
+        <li><a href="carrito.html" class="nav-link cart-link">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cart-count">0</span>
+        </a></li>
+      </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <div class="container">
-      <h2 class="section-title">Listado de Productos</h2>
+<!-- BREADCRUMB -->
+<section class="breadcrumb-section">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Inicio</a> → <span>Listado de Productos</span>
+    </div>
+  </div>
+</section>
 
+<!-- TABLA DE PRODUCTOS -->
+<main>
+  <div class="container">
+    <h2 class="section-title">Listado de Productos</h2>
+    <p class="section-subtitle">Todos nuestros productos con información detallada</p>
+
+    <div class="table-container">
       <table class="products-table">
         <thead>
           <tr>
@@ -43,82 +65,126 @@
 
         <tbody>
           <tr>
-            <td>MOT001</td>
-            <td>Aceite Motor Mineral</td>
-            <td>Shell</td>
-            <td>Mineral</td>
-            <td>20W-50</td>
-            <td>4L</td>
-            <td>$8.500</td>
-            <td><a href="producto.html?id=MOT001" class="btn btn-small">Ver Detalles</a></td>
+            <td data-label="Código">MOT001</td>
+            <td data-label="Nombre">Aceite Motor Mineral</td>
+            <td data-label="Marca">Shell</td>
+            <td data-label="Tipo">Mineral</td>
+            <td data-label="Viscosidad">20W-50</td>
+            <td data-label="Presentación">4L</td>
+            <td data-label="Precio" class="price-cell">$8.500</td>
+            <td data-label="Acción">
+              <a href="producto.html?id=MOT001" class="btn btn-small btn-table">Ver</a>
+            </td>
           </tr>
 
           <tr>
-            <td>MOT002</td>
-            <td>Aceite Motor Semisintético</td>
-            <td>Mobil</td>
-            <td>Semisintético</td>
-            <td>10W-40</td>
-            <td>4L</td>
-            <td>$12.800</td>
-            <td><a href="producto.html?id=MOT002" class="btn btn-small">Ver Detalles</a></td>
+            <td data-label="Código">MOT002</td>
+            <td data-label="Nombre">Aceite Motor Semisintético</td>
+            <td data-label="Marca">Mobil</td>
+            <td data-label="Tipo">Semisintético</td>
+            <td data-label="Viscosidad">10W-40</td>
+            <td data-label="Presentación">4L</td>
+            <td data-label="Precio" class="price-cell">$12.800</td>
+            <td data-label="Acción">
+              <a href="producto.html?id=MOT002" class="btn btn-small btn-table">Ver</a>
+            </td>
           </tr>
 
           <tr>
-            <td>MOT003</td>
-            <td>Aceite Motor Sintético</td>
-            <td>Castrol</td>
-            <td>Sintético</td>
-            <td>5W-30</td>
-            <td>4L</td>
-            <td>$18.900</td>
-            <td><a href="producto.html?id=MOT003" class="btn btn-small">Ver Detalles</a></td>
+            <td data-label="Código">MOT003</td>
+            <td data-label="Nombre">Aceite Motor Sintético</td>
+            <td data-label="Marca">Castrol</td>
+            <td data-label="Tipo">Sintético</td>
+            <td data-label="Viscosidad">5W-30</td>
+            <td data-label="Presentación">4L</td>
+            <td data-label="Precio" class="price-cell">$18.900</td>
+            <td data-label="Acción">
+              <a href="producto.html?id=MOT003" class="btn btn-small btn-table">Ver</a>
+            </td>
           </tr>
 
           <tr>
-            <td>FIL001</td>
-            <td>Filtro de Aceite</td>
-            <td>Mann Filter</td>
-            <td>Filtro</td>
-            <td>-</td>
-            <td>Unidad</td>
-            <td>$2.300</td>
-            <td><a href="producto.html?id=FIL001" class="btn btn-small">Ver Detalles</a></td>
+            <td data-label="Código">FIL001</td>
+            <td data-label="Nombre">Filtro de Aceite</td>
+            <td data-label="Marca">Mann Filter</td>
+            <td data-label="Tipo">Filtro</td>
+            <td data-label="Viscosidad">-</td>
+            <td data-label="Presentación">Unidad</td>
+            <td data-label="Precio" class="price-cell">$2.300</td>
+            <td data-label="Acción">
+              <a href="producto.html?id=FIL001" class="btn btn-small btn-table">Ver</a>
+            </td>
           </tr>
 
           <tr>
-            <td>FIL002</td>
-            <td>Filtro de Aire</td>
-            <td>Bosch</td>
-            <td>Filtro</td>
-            <td>-</td>
-            <td>Unidad</td>
-            <td>$3.450</td>
-            <td><a href="producto.html?id=FIL002" class="btn btn-small">Ver Detalles</a></td>
+            <td data-label="Código">FIL002</td>
+            <td data-label="Nombre">Filtro de Aire</td>
+            <td data-label="Marca">Bosch</td>
+            <td data-label="Tipo">Filtro</td>
+            <td data-label="Viscosidad">-</td>
+            <td data-label="Presentación">Unidad</td>
+            <td data-label="Precio" class="price-cell">$3.450</td>
+            <td data-label="Acción">
+              <a href="producto.html?id=FIL002" class="btn btn-small btn-table">Ver</a>
+            </td>
           </tr>
 
           <tr>
-            <td>FIL003</td>
-            <td>Filtro de Combustible</td>
-            <td>Fram</td>
-            <td>Filtro</td>
-            <td>-</td>
-            <td>Unidad</td>
-            <td>$2.800</td>
-            <td><a href="producto.html?id=FIL003" class="btn btn-small">Ver Detalles</a></td>
+            <td data-label="Código">FIL003</td>
+            <td data-label="Nombre">Filtro de Combustible</td>
+            <td data-label="Marca">Fram</td>
+            <td data-label="Tipo">Filtro</td>
+            <td data-label="Viscosidad">-</td>
+            <td data-label="Presentación">Unidad</td>
+            <td data-label="Precio" class="price-cell">$2.800</td>
+            <td data-label="Acción">
+              <a href="producto.html?id=FIL003" class="btn btn-small btn-table">Ver</a>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
-  </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
-      <p>Dirección: Av. Principal 123, Ciudad | Tel: (011) 4567-8900 | Email: info@lubricentror18.com</p>
+    <div class="text-center" style="margin-top: 3rem;">
+      <a href="listado_box.html" class="btn btn-outline-dark">Ver como Catálogo</a>
     </div>
-  </footer>
+  </div>
+</main>
 
-  <script src="../js/app.js"></script>
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🔧 Lubricentro R/18</h3>
+        <p>Tu aliado en el mantenimiento automotriz desde 2010</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="listado_box.html">Productos</a></li>
+          <li><a href="comprar.html">Comprar</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <ul class="footer-links">
+          <li>Tel: (011) 4567-8900</li>
+          <li>info@lubricentror18.com</li>
+          <li>Av. Principal 123, Ciudad</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/app.js"></script>
 </body>
 </html>

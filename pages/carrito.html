@@ -8,45 +8,140 @@
 <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+
+<!-- HEADER -->
 <header>
-    <nav class="navbar">
-    <div class="nav-container">
-        <h1 class="logo">Lubricentro R/18</h1>
-        <ul class="nav-menu">
+  <div class="nav-container">
+    <h1 class="logo">🔧 Lubricentro R/18</h1>
+    <button class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="../index.html" class="nav-link">Inicio</a></li>
-        <li><a href="listado_tabla.html" class="nav-link">Productos (Tabla)</a></li>
-        <li><a href="listado_box.html" class="nav-link">Productos (Cajas)</a></li>
+        <li><a href="listado_tabla.html" class="nav-link">Productos</a></li>
+        <li><a href="listado_box.html" class="nav-link">Catálogo</a></li>
         <li><a href="comprar.html" class="nav-link">Comprar</a></li>
-        <li><a href="carrito.html" class="nav-link active">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
-        </ul>
-    </div>
+        <li><a href="carrito.html" class="nav-link cart-link active">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cart-count">0</span>
+        </a></li>
+      </ul>
     </nav>
+  </div>
 </header>
 
-<main>
-    <div class="container">
+<!-- BREADCRUMB -->
+<section class="breadcrumb-section">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Inicio</a> → <span>Carrito de Compras</span>
+    </div>
+  </div>
+</section>
+
+<!-- CARRITO -->
+<main class="cart-page">
+  <div class="container">
     <h2 class="section-title">🛒 Tu Carrito</h2>
-    <div id="cart-container">
-      <div class="empty-cart">
-        <p>Tu carrito está vacío</p>
-        <a href="listado_box.html" class="cta-button">Ver Productos</a>
+    <p class="section-subtitle">Revisa tus productos antes de finalizar la compra</p>
+
+    <div class="cart-content">
+      <div class="cart-items-section">
+        <div id="cart-container" class="cart-container-modern">
+          <div class="empty-cart">
+            <div class="empty-cart-icon">🛒</div>
+            <h3>Tu carrito está vacío</h3>
+            <p>Agrega productos para comenzar tu compra</p>
+            <a href="listado_box.html" class="btn btn-primary">Ver Productos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-card">
+          <h3>Resumen de Compra</h3>
+          <div class="summary-line">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal">$0</span>
+          </div>
+          <div class="summary-line">
+            <span>Envío:</span>
+            <span class="free-shipping">Gratis</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-total">
+            <span>Total:</span>
+            <span id="cart-total">$0</span>
+          </div>
+          
+          <div class="cart-actions-summary" id="cart-actions">
+            <a href="comprar.html" class="btn btn-primary btn-block" id="finalizar-compra">
+              Finalizar Compra
+            </a>
+            <button id="clear-cart" class="btn btn-outline-danger btn-block">
+              Vaciar Carrito
+            </button>
+          </div>
+        </div>
+
+        <div class="security-badges">
+          <div class="badge-item">
+            <span>🔒</span>
+            <small>Compra Segura</small>
+          </div>
+          <div class="badge-item">
+            <span>🚚</span>
+            <small>Envío Gratis</small>
+          </div>
+          <div class="badge-item">
+            <span>↩️</span>
+            <small>Devoluciones</small>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div id="cart-total"></div>
-
-    <div class="cart-actions" id="cart-actions">
-        <a href="comprar.html" class="cta-button" id="finalizar-compra">Finalizar Compra</a>
-        <button id="clear-cart" class="btn btn-danger">Vaciar Carrito</button>
+    <div class="continue-shopping">
+      <a href="listado_box.html" class="link-continue">← Continuar Comprando</a>
     </div>
-    </div>
+  </div>
 </main>
 
+<!-- FOOTER -->
 <footer>
-    <div class="container">
-    <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
-    <p>Dirección: Av. Principal 123, Ciudad | Tel: (011) 4567-8900 | Email: info@lubricentror18.com</p>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🔧 Lubricentro R/18</h3>
+        <p>Tu aliado en el mantenimiento automotriz desde 2010</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="listado_box.html">Productos</a></li>
+          <li><a href="comprar.html">Comprar</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <ul class="footer-links">
+          <li>Tel: (011) 4567-8900</li>
+          <li>info@lubricentror18.com</li>
+          <li>Av. Principal 123, Ciudad</li>
+        </ul>
+      </div>
     </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
+    </div>
+  </div>
 </footer>
 
 <script src="../js/app.js"></script>

@@ -7,106 +7,198 @@
   <title>Comprar - Lubricentro R/18</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="page-comprar">
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <h1 class="logo">Lubricentro R/18</h1>
-        <ul class="nav-menu">
-          <li><a href="../index.html" class="nav-link">Inicio</a></li>
-          <li><a href="listado_tabla.html" class="nav-link">Productos (Tabla)</a></li>
-          <li><a href="listado_box.html" class="nav-link">Productos (Cajas)</a></li>
-          <li><a href="comprar.html" class="nav-link active">Comprar</a></li>
-          <li><a href="carrito.html" class="nav-link">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+<body>
 
-<main>
+<!-- HEADER -->
+<header>
+  <div class="nav-container">
+    <h1 class="logo">🔧 Lubricentro R/18</h1>
+    <button class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="../index.html" class="nav-link">Inicio</a></li>
+        <li><a href="listado_tabla.html" class="nav-link">Productos</a></li>
+        <li><a href="listado_box.html" class="nav-link">Catálogo</a></li>
+        <li><a href="comprar.html" class="nav-link active">Comprar</a></li>
+        <li><a href="carrito.html" class="nav-link cart-link">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cart-count">0</span>
+        </a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<section class="breadcrumb-section">
   <div class="container">
-    <h2>Formulario de Compra</h2>
+    <div class="breadcrumb">
+      <a href="../index.html">Inicio</a> → <span>Formulario de Compra</span>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<main class="form-page">
+  <div class="container">
+    <h2 class="section-title">Finalizar Compra</h2>
+    <p class="section-subtitle">Completa tus datos para procesar el pedido</p>
     
-    <!-- Información del carrito (se muestra cuando viene desde carrito) -->
-    <div id="info-carrito" class="info-carrito">
-      <!-- Se llena automáticamente con JavaScript -->
+    <!-- Información del carrito -->
+    <div id="info-carrito" class="info-carrito-modern">
+      <!-- Se llena con JavaScript -->
     </div>
 
-    <form id="purchaseForm" novalidate>
-      <label for="nombre">Nombre completo</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
-      <div id="error-nombre" class="error">⚠ Solo se permiten letras y espacios.</div>
+    <!-- Barra de progreso -->
+    <div class="progress-bar-modern">
+      <div class="progress-bar-fill" id="progress-bar-fill"></div>
+    </div>
+    <p class="progress-text">Completa el formulario</p>
 
-      <label for="direccion">Dirección</label>
-      <input type="text" id="direccion" name="direccion" placeholder="Ej: Av. Siempre Viva 742" required>
-
-      <label for="telefono">Teléfono</label>
-      <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1156784321" required>
-      <div id="error-telefono" class="error">⚠ Solo se permiten números (7-15 dígitos).</div>
-
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" placeholder="Ej: usuario@gmail.com" required>
-      <div id="error-email" class="error">⚠ Ingrese un correo válido (ej: ejemplo@dominio.com).</div>
-
-      <label for="producto">Producto a comprar</label>
-      <select id="producto" name="producto" required>
-        <option value="">Seleccione un producto...</option>
-        <option value="Aceite Motor Mineral">Aceite Motor Mineral</option>
-        <option value="Aceite Motor Sintético">Aceite Motor Sintético</option>
-        <option value="Filtro de Aceite">Filtro de Aceite</option>
-        <option value="Filtro de Aire">Filtro de Aire</option>
-        <option value="Filtro de Combustible">Filtro de Combustible</option>
-      </select>
-
-      <label for="cantidad">Cantidad</label>
-      <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
-
-      <!-- MÉTODO DE PAGO -->
-      <div class="metodo-pago">
-        <label><strong>Método de pago:</strong></label>
-
-        <div class="opcion">
-          <span>Tarjeta de crédito/débito</span>
-          <input type="radio" name="metodoPago" value="Tarjeta de crédito/débito" required>
+    <form id="purchaseForm" class="form-modern" novalidate>
+      
+      <div class="form-section">
+        <h3 class="form-section-title">📋 Información Personal</h3>
+        
+        <div class="form-group">
+          <label for="nombre">Nombre completo *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+          <div id="error-nombre" class="error">⚠ Solo se permiten letras y espacios.</div>
         </div>
 
-        <div class="opcion">
-          <span>Transferencia bancaria</span>
-          <input type="radio" name="metodoPago" value="Transferencia bancaria">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefono">Teléfono *</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1156784321" required>
+            <div id="error-telefono" class="error">⚠ Solo números (7-15 dígitos).</div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo electrónico *</label>
+            <input type="email" id="email" name="email" placeholder="Ej: usuario@gmail.com" required>
+            <div id="error-email" class="error">⚠ Ingrese un correo válido.</div>
+          </div>
         </div>
 
-        <div class="opcion">
-          <span>Efectivo</span>
-          <input type="radio" name="metodoPago" value="Efectivo">
+        <div class="form-group">
+          <label for="direccion">Dirección *</label>
+          <input type="text" id="direccion" name="direccion" placeholder="Ej: Av. Siempre Viva 742" required>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section-title">📦 Detalles del Pedido</h3>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="producto">Producto *</label>
+            <select id="producto" name="producto" required>
+              <option value="">Seleccione un producto...</option>
+              <option value="Aceite Motor Mineral">Aceite Motor Mineral</option>
+              <option value="Aceite Motor Sintético">Aceite Motor Sintético</option>
+              <option value="Filtro de Aceite">Filtro de Aceite</option>
+              <option value="Filtro de Aire">Filtro de Aire</option>
+              <option value="Filtro de Combustible">Filtro de Combustible</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="cantidad">Cantidad *</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" max="10" value="1">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="form-section-title">💳 Método de Pago</h3>
+        
+        <div class="payment-options">
+          <label class="payment-option">
+            <input type="radio" name="metodoPago" value="Tarjeta de crédito/débito" required>
+            <div class="payment-card">
+              <span class="payment-icon">💳</span>
+              <div class="payment-info">
+                <strong>Tarjeta de crédito/débito</strong>
+                <small>Visa, Mastercard, American Express</small>
+              </div>
+            </div>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="metodoPago" value="Transferencia bancaria">
+            <div class="payment-card">
+              <span class="payment-icon">🏦</span>
+              <div class="payment-info">
+                <strong>Transferencia bancaria</strong>
+                <small>CBU/CVU - Acreditación inmediata</small>
+              </div>
+            </div>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="metodoPago" value="Efectivo">
+            <div class="payment-card">
+              <span class="payment-icon">💵</span>
+              <div class="payment-info">
+                <strong>Efectivo</strong>
+                <small>Pago en tienda o contra entrega</small>
+              </div>
+            </div>
+          </label>
         </div>
 
         <div id="error-metodo" class="error">⚠ Seleccione un método de pago.</div>
       </div>
 
-      <!-- Barra de progreso -->
-      <div class="progress-bar">
-        <div class="progress-bar-fill" id="progress-bar-fill"></div>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Enviar Pedido</button>
+      <button type="submit" class="btn btn-primary btn-large btn-block">
+        Confirmar Pedido →
+      </button>
     </form>
 
-    <!-- Enlace para volver al carrito -->
-    <div class="btn-volver-carrito">
-      <a href="carrito.html" class="btn btn-secondary">← Volver al Carrito</a>
+    <div class="back-link">
+      <a href="carrito.html" class="link-back">← Volver al Carrito</a>
     </div>
   </div>
 </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Lubricentro R/18 - Todos los derechos reservados</p>
-      <p>Dirección: Av. Principal 123, Ciudad | Teléfono: (011) 4567-8900 | Email: info@lubricentror18.com</p>
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🔧 Lubricentro R/18</h3>
+        <p>Tu aliado en el mantenimiento automotriz desde 2010</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="listado_box.html">Productos</a></li>
+          <li><a href="comprar.html">Comprar</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <ul class="footer-links">
+          <li>Tel: (011) 4567-8900</li>
+          <li>info@lubricentror18.com</li>
+          <li>Av. Principal 123, Ciudad</li>
+        </ul>
+      </div>
     </div>
-  </footer>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
 
-  <div class="notification" id="notification">✅ Pedido enviado correctamente.</div>
-
-  <script src="../js/app.js"></script>
+<script src="../js/app.js"></script>
 </body>
 </html>

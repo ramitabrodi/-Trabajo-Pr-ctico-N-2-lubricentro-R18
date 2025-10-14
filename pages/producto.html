@@ -3,68 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
   <title>Detalle del Producto - Lubricentro R/18</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+
+<!-- HEADER -->
 <header>
-  <nav class="navbar">
-    <div class="nav-container">
-      <h1 class="logo">Lubricentro R/18</h1>
-      <ul class="nav-menu">
+  <div class="nav-container">
+    <h1 class="logo">🔧 Lubricentro R/18</h1>
+    <button class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="../index.html" class="nav-link">Inicio</a></li>
-        <li><a href="listado_tabla.html" class="nav-link">Productos (Tabla)</a></li>
-        <li><a href="listado_box.html" class="nav-link">Productos (Cajas)</a></li>
+        <li><a href="listado_tabla.html" class="nav-link">Productos</a></li>
+        <li><a href="listado_box.html" class="nav-link">Catálogo</a></li>
         <li><a href="comprar.html" class="nav-link">Comprar</a></li>
-        <li><a href="carrito.html" class="nav-link">🛒 Carrito (<span id="cart-count">0</span>)</a></li>
+        <li><a href="carrito.html" class="nav-link cart-link">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-badge" id="cart-count">0</span>
+        </a></li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>
 
-<main>
+<!-- BREADCRUMB -->
+<section class="breadcrumb-section">
   <div class="container">
     <div class="breadcrumb">
-      <a href="../index.html">Inicio</a> > 
-      <a href="listado_box.html">Productos</a> > 
-      <span id="breadcrumb-nombre"></span>
+      <a href="../index.html">Inicio</a> → 
+      <a href="listado_box.html">Productos</a> → 
+      <span id="breadcrumb-nombre">Producto</span>
     </div>
-    
-    <div class="product-detail">
-      <img id="imagen-producto" src="" alt="Producto" class="product-image">
-      <h2 id="nombre-producto"></h2>
-      <p id="codigo-producto"></p>
-      <p class="product-price" id="precio-producto"></p>
-      <p id="descripcion-producto"></p>
+  </div>
+</section>
 
-      <h3>Especificaciones</h3>
-      <ul id="detalles-lista"></ul>
-
-      <div style="margin-top:30px;">
-        <button class="cta-button" id="btn-agregar">Agregar al Carrito</button>
-        <a href="listado_box.html" class="btn btn-secondary" style="margin-left:20px;">Volver</a>
+<!-- DETALLE DEL PRODUCTO -->
+<main class="product-detail-page">
+  <div class="container">
+    <div class="product-detail-grid">
+      
+      <!-- Imagen del producto -->
+      <div class="product-image-section">
+        <div class="product-image-container">
+          <img id="imagen-producto" src="" alt="Producto" class="product-image-large">
+        </div>
       </div>
+
+      <!-- Información del producto -->
+      <div class="product-info-section">
+        <p id="codigo-producto" class="product-code"></p>
+        <h1 id="nombre-producto" class="product-title"></h1>
+        
+        <div class="product-rating">
+          ⭐⭐⭐⭐⭐ <span class="rating-count">(128 valoraciones)</span>
+        </div>
+
+        <p class="product-price-large" id="precio-producto"></p>
+
+        <p id="descripcion-producto" class="product-description"></p>
+
+        <div class="product-actions">
+          <button class="btn btn-primary btn-large" id="btn-agregar">
+            <span>🛒</span> Agregar al Carrito
+          </button>
+          <a href="comprar.html" class="btn btn-outline-dark btn-large">
+            Comprar Ahora
+          </a>
+        </div>
+
+        <div class="product-benefits">
+          <div class="benefit-badge">
+            <span>🚚</span> Envío gratis
+          </div>
+          <div class="benefit-badge">
+            <span>✓</span> Producto original
+          </div>
+          <div class="benefit-badge">
+            <span>↩️</span> Devolución gratis
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Especificaciones técnicas -->
+    <div class="product-specs">
+      <h2 class="specs-title">📋 Especificaciones Técnicas</h2>
+      <div class="specs-grid">
+        <ul id="detalles-lista" class="specs-list"></ul>
+      </div>
+    </div>
+
+    <!-- Productos relacionados -->
+    <div class="related-products">
+      <h2 class="section-title">Productos Relacionados</h2>
+      <p class="section-subtitle">También te puede interesar</p>
+      
+      <div class="products-grid-small">
+        <div class="product-card-small">
+          <img src="../img/aceite_semi.jpg" alt="Aceite Semisintético">
+          <h4>Aceite Semisintético</h4>
+          <p class="product-price">$12.800</p>
+        </div>
+        <div class="product-card-small">
+          <img src="../img/filtro_aceite.jpg" alt="Filtro de Aceite">
+          <h4>Filtro de Aceite</h4>
+          <p class="product-price">$2.300</p>
+        </div>
+        <div class="product-card-small">
+          <img src="../img/filtro_aire.jpg" alt="Filtro de Aire">
+          <h4>Filtro de Aire</h4>
+          <p class="product-price">$3.450</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-link">
+      <a href="listado_box.html" class="link-back">← Volver al Catálogo</a>
     </div>
   </div>
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="container">
-    <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
-    <p>Dirección: Av. Principal 123, Ciudad | Tel: (011) 4567-8900 | Email: info@lubricentror18.com</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🔧 Lubricentro R/18</h3>
+        <p>Tu aliado en el mantenimiento automotriz desde 2010</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="listado_box.html">Productos</a></li>
+          <li><a href="comprar.html">Comprar</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <ul class="footer-links">
+          <li>Tel: (011) 4567-8900</li>
+          <li>info@lubricentror18.com</li>
+          <li>Av. Principal 123, Ciudad</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lubricentro R/18. Todos los derechos reservados.</p>
+    </div>
   </div>
 </footer>
 
 <script src="../js/app.js"></script>
 <script>
 const productos = [
-  { id: "MOT001", nombre: "Aceite Motor Mineral Shell 20W-50 4L", descripcion: "Aceite mineral de alta calidad para motores nafteros.", detalles: ["Viscosidad: 20W-50", "Marca: Shell", "Presentación: 4L", "Tipo: Mineral"], precio: "$8.500", imagen: "../img/aceite_mineral.jpg" },
-  { id: "MOT002", nombre: "Aceite Motor Semisintético Mobil 10W-40 4L", descripcion: "Lubricante semisintético de excelente protección y rendimiento.", detalles: ["Viscosidad: 10W-40", "Marca: Mobil", "Presentación: 4L", "Tipo: Semisintético"], precio: "$12.800", imagen: "../img/aceite_semi.jpg" },
-  { id: "MOT003", nombre: "Aceite Motor Sintético Castrol EDGE 5W-30 4L", descripcion: "Lubricante sintético premium que maximiza el rendimiento del motor.", detalles: ["Viscosidad: 5W-30", "Marca: Castrol", "Presentación: 4L", "Tipo: Sintético"], precio: "$18.900", imagen: "../img/sintetico-castrol.jpg" },
-  { id: "FIL001", nombre: "Filtro de Aceite Mann Filter", descripcion: "Filtro de alta eficiencia que garantiza la pureza del aceite.", detalles: ["Marca: Mann Filter", "Tipo: Filtro de Aceite", "Unidad: 1"], precio: "$2.300", imagen: "../img/filtro_aceite.jpg" },
-  { id: "FIL002", nombre: "Filtro de Aire Bosch", descripcion: "Filtro que mejora el rendimiento del motor y reduce el consumo.", detalles: ["Marca: Bosch", "Tipo: Filtro de Aire", "Unidad: 1"], precio: "$3.450", imagen: "../img/filtro_aire.jpg" },
-  { id: "FIL003", nombre: "Filtro de Combustible Fram", descripcion: "Filtro que evita impurezas en el sistema de combustible.", detalles: ["Marca: Fram", "Tipo: Filtro de Combustible", "Unidad: 1"], precio: "$2.800", imagen: "../img/filtro_combustible.jpg" }
+  { id: "MOT001", nombre: "Aceite Motor Mineral Shell 20W-50 4L", descripcion: "Aceite mineral de alta calidad para motores nafteros. Proporciona excelente protección contra el desgaste y mantiene el motor limpio.", detalles: ["Viscosidad: 20W-50", "Marca: Shell", "Presentación: 4L", "Tipo: Mineral", "Ideal para climas cálidos"], precio: "$8.500", imagen: "../img/aceite_mineral.jpg" },
+  { id: "MOT002", nombre: "Aceite Motor Semisintético Mobil 10W-40 4L", descripcion: "Lubricante semisintético de excelente protección y rendimiento. Combina lo mejor de aceites minerales y sintéticos.", detalles: ["Viscosidad: 10W-40", "Marca: Mobil", "Presentación: 4L", "Tipo: Semisintético", "Protección superior"], precio: "$12.800", imagen: "../img/aceite_semi.jpg" },
+  { id: "MOT003", nombre: "Aceite Motor Sintético Castrol EDGE 5W-30 4L", descripcion: "Lubricante sintético premium que maximiza el rendimiento del motor. Tecnología avanzada para máxima protección.", detalles: ["Viscosidad: 5W-30", "Marca: Castrol", "Presentación: 4L", "Tipo: Sintético", "Tecnología Fluid Titanium"], precio: "$18.900", imagen: "../img/castrol.jpg" },
+  { id: "FIL001", nombre: "Filtro de Aceite Mann Filter", descripcion: "Filtro de alta eficiencia que garantiza la pureza del aceite. Fabricado con materiales de primera calidad.", detalles: ["Marca: Mann Filter", "Tipo: Filtro de Aceite", "Unidad: 1", "Alta capacidad de filtrado", "Diseño original"], precio: "$2.300", imagen: "../img/filtro_aceite.jpg" },
+  { id: "FIL002", nombre: "Filtro de Aire Bosch", descripcion: "Filtro que mejora el rendimiento del motor y reduce el consumo. Tecnología alemana de precisión.", detalles: ["Marca: Bosch", "Tipo: Filtro de Aire", "Unidad: 1", "Mayor flujo de aire", "Larga durabilidad"], precio: "$3.450", imagen: "../img/filtro_aire.jpg" },
+  { id: "FIL003", nombre: "Filtro de Combustible Fram", descripcion: "Filtro que evita impurezas en el sistema de combustible. Protege inyectores y sistema de alimentación.", detalles: ["Marca: Fram", "Tipo: Filtro de Combustible", "Unidad: 1", "Filtración de alta eficiencia", "Instalación sencilla"], precio: "$2.800", imagen: "../img/filtro_combustible.jpg" }
 ];
 
 const params = new URLSearchParams(window.location.search);
@@ -82,7 +190,7 @@ document.getElementById("imagen-producto").alt = producto.nombre;
 const lista = document.getElementById("detalles-lista");
 producto.detalles.forEach(d => {
   const li = document.createElement("li");
-  li.textContent = d;
+  li.innerHTML = `<span class="spec-icon">✓</span> ${d}`;
   lista.appendChild(li);
 });
 </script>
